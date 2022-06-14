@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/banner.css">
+    <link rel="stylesheet" href="./css/card.css">
+    <title>TheLastComic</title>
+</head>
+
+<body>
+    <header>
+        <div class="name-shop">The Last Comic</div>
+        <nav class="navbar1">
+            <i class="fa-solid fa-bars togle-navbar" id="btnMenu"></i>
+            <a href="#"> <img class="navbar-logo" src="./img/Logo.png" alt="logo"></a>
+
+            <lu class="navbar-lu" id="menuList">
+                <li><a href="#">Categoria 1</a></li>
+                <li><a href="#">Categoria 2</a></li>
+                <li><a href="#">Categoria 3</a></li>
+            </lu>
+            <div class="navbar-content-shop-user">
+                <span class=" navbar-content-shop" type="button" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                    <i class="fa-solid fa-cart-shopping navbar-shop"></i>
+                    <div class="navbar-count">0</div>
+                </span>
+                <span class="btnDropDownUser"> <i class="fa-solid fa-circle-user navbar-user "></i>
+                    <div class="dropdown-user">
+                        <lu class="dropdown-user--lu">
+                            <div id="sinInicio">
+                                <li type="button" data-bs-toggle="modal" data-bs-target="#modalInicioSession">Iniciar
+                                    sessión</li>
+                                <li type="button" data-bs-toggle="modal" data-bs-target="#modalRegistro">Registrarse
+                                </li>
+                            </div>
+                            <div id="conInicio">
+                                <li>"Hola <em id="nameLogged"></em>!"</li>
+                                <hr>
+                                <li type="button"  onclick="verPerfil()" data-bs-toggle="modal" data-bs-target="#modalPerfil">Perfil</li>
+                                <li type="button"  onclick="renderFav()"  data-bs-toggle="modal" data-bs-target="#modalFav" >Favoritos</li>
+                                <hr>
+                                <li type="button" onclick="cerrarSesion()">Cerrar sessión</li>
+                            </div>
+                        </lu>
+                    </div>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-index container">
+        <div class="banner-principal"></div>
+        <div class="card--content" id="cardContent"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Nosotros</h4>
+                    <ul>
+                        <li><a href="#">Historia</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Sucursales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Encontranos en:</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 3 de Febrero 1180, Rosario</a></li>
+                        <li><a href="#"><i class="fas fa-comment-alt"></i> 0341 2988136</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> 341 38415862</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> TheLastComic@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Seguinos:</h4>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>2022 | TheLastComic</p>
+    </div>
+
+    <!-- Modal login-->
+    <div class="modal fade" id="modalInicioSession" tabindex="-1" aria-labelledby="modalInicioSessionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInicioSessionLabel">Iniciar sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="#" id="formLogin">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="EmailInicio" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="EmailInicio" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputPasswordInicio" class="form-label">Password </label>
+                            <input type="password" class="form-control" id="inputPasswordInicio" autocomplete="on" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success m-auto">Iniciar sesion</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal perfil-->
+    <div class="modal fade" id="modalPerfil" tabindex="-1" aria-labelledby="modalPerfilLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <label for="modalPerfilLabel">Perfil id:&nbsp; </label>
+                    <h5 class="modal-title" id="modalPerfilLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <strong for="name">Nombre:&nbsp; </strong> <label for="name" class="form-label" id="namePerfil">Nombre</label>
+                    </div>
+                    <div class="mb-3">
+                        <strong for="name">Email:&nbsp; </strong><label for="Email" class="form-label" id="emailPerfil">Email</label>
+
+                    </div>
+                    <div class="mb-3">
+                        <strong>Rol:&nbsp; </strong><label for="rol" class="form-label" id="rolPerfil">rol</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal fav-->
+    <div class="modal fade" id="modalFav" tabindex="-1" aria-labelledby="modalFavLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalFavLabel">Favoritos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card--content" id="cardContentFav">
+                        <!-- <div class="card--product card-fav">
+                            <img src="https://picsum.photos/200" alt="producto1">
+                            <hr>
+                            <p>Titulo</p>
+                            <p>$500,99</p>
+                            <button class="btn btn-success btn-sm">Agregar</button>
+                            <i class="fa-solid fa-trash-can"></i>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal registro-->
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalRegistroLabel">Registrarse</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="#" id="formRegister">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nameRegistro" placeholder="Nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="EmailRegistro" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailRegistro" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputPasswordregister" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPasswordRegistro" autocomplete="on" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success m-auto">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal carrito compras-->
+    <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCarritoLabel">Carrito de compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <table class="table tablaCarrito">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">img</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cant</th>
+                            <th scope="col">subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyTableCarrito">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Total</td>
+                            <td id="celdaCantProducto">12</td>
+                            <td id="totalPrecio">total</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class=" py-2 m-auto">
+                    <button type="button" class="btn btn-danger" onclick="vaciarCarrito()" data-bs-dismiss="modal">Vaciar</button>
+                    <button type="button" class="btn btn-primary" onclick="graciasCompra()">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="./js/product.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+body {
+    background-color: #AACDBE;
+}
+
+.footerModal {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+main {
+    background-color: #97c9b4;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* input:invalid {
+    background-color: red;
+} */

@@ -1,0 +1,67 @@
+:root {
+    --color1: #EA907A;
+    --color2: #FBC687;
+    --color3: #F4F7C5;
+    --color4: #AACDBE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card--content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card--product {
+    text-align: center;
+    border: 2px solid black;
+    width: 300px;
+    padding: 10px;
+    background-color: var(--color2);
+    position: relative;
+    margin: 10px;
+}
+
+.card--product .fa-star {
+    color: rgb(255 255 93);
+    font-size: 30px;
+    position: absolute;
+    bottom: 16px;
+    right: 7px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.card--product .fa-star:hover {
+    transform: scale(1.3);
+    color: rgb(243, 243, 54);
+}
+
+.card--product .fa-trash-can {
+    color: rgb(235, 86, 86);
+    font-size: 20px;
+    position: absolute;
+    bottom: 16px;
+    right: 7px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.card--product .fa-trash-can:hover {
+    transform: scale(1.3);
+    color: rgb(236, 17, 17);
+}
+
+.card-fav {
+    max-width: 250px;
+}
+
+.card-fav img {
+    width: 130px;
+}
