@@ -1,8 +1,6 @@
-// cargar card
 const cardContent = document.querySelector('#cardContent');
 window.addEventListener('DOMContentLoaded', loadCard());
 
-loadCategories();
 
 function loadCard() {
     let products = getLS('products');
@@ -27,10 +25,24 @@ function loadCard() {
 
 }
 
+// const menuCategories = document.querySelector('#menuCategories');
+
+
 function loadCategories() {
-    const menuCategories = document.querySelector('#menuCategories');
+    menuCategories.innerHTML = '';
     categories.forEach(cat => menuCategories.innerHTML += `<li><a class="btnCategory" href="#">${cat}</a></li>`);
 }
+loadCategories();
+
+menuCategories.addEventListener('click', filtroCategory)
+
+function filtroCategory(e) {
+    if (e.target.classList.contains('btnCategory')) {
+        console.log(e.target.innerText);
+
+    }
+}
+
 
 let cart = [];
 let total;
