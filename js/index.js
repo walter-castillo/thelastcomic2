@@ -2,8 +2,9 @@
 const cardContent = document.querySelector('#cardContent');
 window.addEventListener('DOMContentLoaded', loadCard());
 
+loadCategories();
+
 function loadCard() {
-    profileHidden();
     let products = getLS('products');
     cardContent.innerHTML = '';
     products.forEach(prod => {
@@ -28,12 +29,9 @@ function loadCard() {
 
 function loadCategories() {
     const menuCategories = document.querySelector('#menuCategories');
-    categories.forEach(cat => {
-        menuCategories.innerHTML += `<li><a href="#">${cat}</a></li>`;
-    })
+    categories.forEach(cat => menuCategories.innerHTML += `<li><a class="btnCategory" href="#">${cat}</a></li>`);
 }
 
-loadCategories();
 let cart = [];
 let total;
 let totalItem;
