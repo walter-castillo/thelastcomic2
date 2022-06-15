@@ -26,6 +26,14 @@ function loadCard() {
 
 }
 
+function loadCategories() {
+    const menuCategories = document.querySelector('#menuCategories');
+    categories.forEach(cat => {
+        menuCategories.innerHTML += `<li><a href="#">${cat}</a></li>`;
+    })
+}
+
+loadCategories();
 let cart = [];
 let total;
 let totalItem;
@@ -126,10 +134,9 @@ function renderCart() {
         const { id, img, product, price, cant } = elem;
         tbodyTableCarrito.innerHTML +=
             `   <tr>
-                    <th scope="row"> $ { id }
+                    <th scope="row"> ${id}
                     </th>
-                    <td>
-                        <img src="${img}" width="20" height="20" alt="${product}">
+                    <td><img src="${img}" width="20" height="20" alt="${product}">
                     </td>
                     <td> ${ product }
                     </td>
@@ -144,7 +151,7 @@ function renderCart() {
     });
 
     const celdaCantProducto = document.querySelector('#celdaCantProducto')
-    celdaCantProducto.innerHTML = cantProdct() + " Unidades"
+    celdaCantProducto.innerHTML = cantProdct() + "Unid."
     const totalPrecio = document.querySelector('#totalPrecio')
     totalPrecio.innerHTML = "$ " + precioTotal()
 

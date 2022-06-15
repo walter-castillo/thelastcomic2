@@ -1,6 +1,3 @@
-
-
-
 const formCreateProduct = document.querySelector('#formCreateProduct');
 formCreateProduct.addEventListener('submit', createNewProduct)
 
@@ -22,8 +19,7 @@ function createNewProduct(e) {
     loadTableAdmin();
 }
 
-// cargar select crear
-const categories = ['Parodia', 'Humor', 'Infantil']
+
 
 const selectLoad = document.querySelector('#createCategorias');
 categories.forEach(item => selectLoad.innerHTML += `<option value="${item}">${item}</option>`);

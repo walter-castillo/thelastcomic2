@@ -25,10 +25,10 @@
             <i class="fa-solid fa-bars togle-navbar" id="btnMenu"></i>
             <a href="#"> <img class="navbar-logo" src="./img/Logo.png" alt="logo"></a>
 
-            <lu class="navbar-lu" id="menuList">
-                <li><a href="#">Categoria 1</a></li>
+            <lu class="navbar-lu" id="menuCategories">
+                <!-- <li><a href="#">Categoria 1</a></li>
                 <li><a href="#">Categoria 2</a></li>
-                <li><a href="#">Categoria 3</a></li>
+                <li><a href="#">Categoria 3</a></li> -->
             </lu>
             <div class="navbar-content-shop-user">
                 <span class=" navbar-content-shop" type="button" data-bs-toggle="modal" data-bs-target="#modalCarrito">
@@ -175,9 +175,6 @@
         </div>
     </div>
 
-
-
-
     <!-- Modal registro-->
     <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -217,28 +214,30 @@
                     <h5 class="modal-title" id="modalCarritoLabel">Carrito de compras</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <table class="table tablaCarrito">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">img</th>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cant</th>
-                            <th scope="col">subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbodyTableCarrito">
+                <div class="table-responsive">
+                    <table class="table  tablaCarrito">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">img</th>
+                                <th scope="col">Prod.</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Cant</th>
+                                <th scope="col">subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyTableCarrito">
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="4">Total</td>
-                            <td id="celdaCantProducto">12</td>
-                            <td id="totalPrecio">total</td>
-                        </tr>
-                    </tfoot>
-                </table>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Total</td>
+                                <td id="celdaCantProducto"></td>
+                                <td id="totalPrecio">total</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
 
                 <div class=" py-2 m-auto">
                     <button type="button" class="btn btn-danger" onclick="vaciarCarrito()" data-bs-dismiss="modal">Vaciar</button>

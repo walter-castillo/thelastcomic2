@@ -1,80 +1,83 @@
 // generar id
 const newId = () => Math.floor(Math.random() * 500);
+// cargar select crear
+const categories = ['Parodia', 'Humor', 'Infantil']
+const randonCategory = () => categories[Math.floor(Math.random() * categories.length)];
 
 let products = [{
-        id: newId(),
-        product: "producto 1",
-        description: "descripcion 1",
-        price: 10,
-        category: "Humor",
-        cant: 0,
-        img: "https://picsum.photos/200"
-    },
-    {
-        id: newId(),
-        product: "producto 2",
-        description: "descripcion 2",
-        price: 20,
-        category: "Parodia",
-        cant: 0,
-        img: "https://picsum.photos/200?random=7"
-    },
-    {
-        id: newId(),
-        product: "producto 3",
-        description: "descripcion 2",
-        price: 20,
-        category: "Parodia",
-        cant: 0,
-        img: "https://picsum.photos/200?random=6"
-    },
-    {
-        id: newId(),
-        product: "producto 4",
-        description: "descripcion 2",
-        price: 20,
-        category: "Parodia",
-        cant: 0,
-        img: "https://picsum.photos/200?random=1"
-    },
-    {
-        id: newId(),
-        product: "producto 5",
-        description: "descripcion 2",
-        price: 20,
-        category: "Parodia",
-        cant: 0,
-        img: "https://picsum.photos/200?random=2"
-    },
-    {
-        id: newId(),
-        product: "producto 6",
-        description: "descripcion 2",
-        price: 20,
-        category: "Parodia",
-        cant: 0,
-        img: "https://picsum.photos/200?random=3"
-    },
-    {
-        id: newId(),
-        product: "producto 7",
-        description: "descripcion 2",
-        price: 20,
-        category: "Parodia",
-        cant: 0,
-        img: "https://picsum.photos/200?random=4"
-    },
-    {
-        id: newId(),
-        product: "producto 8",
-        description: "descripcion 3",
-        price: 30,
-        category: "Infantil",
-        cant: 0,
-        img: "https://picsum.photos/200?random=5"
-    }
-]
-
+            id: newId(),
+            product: "producto 1",
+            description: "descripcion 1",
+            price: 10,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200"
+        },
+        {
+            id: newId(),
+            product: "producto 2",
+            description: "descripcion 2",
+            price: 20,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200?random=7"
+        },
+        {
+            id: newId(),
+            product: "producto 3",
+            description: "descripcion 2",
+            price: 20,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200?random=6"
+        },
+        {
+            id: newId(),
+            product: "producto 4",
+            description: "descripcion 2",
+            price: 20,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200?random=1"
+        },
+        {
+            id: newId(),
+            product: "producto 5",
+            description: "descripcion 2",
+            price: 20,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200?random=2"
+        },
+        {
+            id: newId(),
+            product: "producto 6",
+            description: "descripcion 2",
+            price: 20,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200?random=3"
+        },
+        {
+            id: newId(),
+            product: "producto 7",
+            description: "descripcion 2",
+            price: 20,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200?random=4"
+        },
+        {
+            id: newId(),
+            product: "producto 8",
+            description: "descripcion 3",
+            price: 30,
+            category: randonCategory(),
+            cant: 0,
+            img: "https://picsum.photos/200?random=5"
+        }
+    ]
+    // cargar select crear
 let users = [{
     id: newId(),
     name: "nombre 1",
