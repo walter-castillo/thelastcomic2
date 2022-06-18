@@ -1,24 +1,26 @@
 const cardContent = document.querySelector('#cardContent');
-window.addEventListener('DOMContentLoaded', loadCard());
+window.addEventListener('DOMContentLoaded', loadCard('All'));
 
 
-function loadCard() {
-    let products = getLS('products');
+
+function loadCard(category) {
+    let products = []
+    category == 'All' ? products = getLS('products') : products = getLS('products').filter(prod => prod.category == category);
     cardContent.innerHTML = '';
     products.forEach(prod => {
         const { id, img, product, category, price, description } = prod
         cardContent.innerHTML +=
             `
-            <div class="card--product">
-                <img src="${img}" alt="${img}">
-                <hr>
-                <h2>${product}</h2>
-                <h5>${category}</h5>
-                <p>${description}</p>
-                <h4>$ ${price}</h4>
-                <button class="btn btn-success btn-agregar" data-idcomprar=${id}>Agregar</button>
-                <i class="fa-solid fa-star" data-idfav=${id}></i>
-            </div>
+        <div class="card--product">
+            <img src="${img}" alt="${img}">
+            <hr>
+            <h2>${product}</h2>
+            <h5>${category}</h5>
+            <p>${description}</p>
+            <h4>$ ${price}</h4>
+            <button class="btn btn-success btn-agregar" data-idcomprar=${id}>Agregar</button>
+            <i class="fa-solid fa-star" data-idfav=${id}></i>
+        </div>
         
         `
     });
@@ -26,21 +28,17 @@ function loadCard() {
 }
 
 // const menuCategories = document.querySelector('#menuCategories');
-
-
 function loadCategories() {
     menuCategories.innerHTML = '';
     categories.forEach(cat => menuCategories.innerHTML += `<li><a class="btnCategory" href="#">${cat}</a></li>`);
+    menuCategories.innerHTML += `<li><a class="btnCategory" href="#">All</a></li>`
 }
 loadCategories();
 
 menuCategories.addEventListener('click', filtroCategory)
 
 function filtroCategory(e) {
-    if (e.target.classList.contains('btnCategory')) {
-        console.log(e.target.innerText);
-
-    }
+    if (e.target.classList.contains('btnCategory')) loadCard(e.target.innerText)
 }
 
 
@@ -51,15 +49,8 @@ let totalItem;
 let numCarrito = document.querySelector('.navbar-count');
 cardContent.addEventListener('click', clickCard)
 
-function cantProdct() {
-    let numCart = cart.reduce((acum, item) => acum + item.cant, 0)
-    return numCart;
-}
-
-function precioTotal() {
-    let total = cart.reduce((acum, item) => acum + item.cant * item.price, 0)
-    return total;
-}
+const cantProdct = () => cart.reduce((acum, item) => acum + item.cant, 0)
+const precioTotal = () => cart.reduce((acum, item) => acum + item.cant * item.price, 0)
 
 function clickCard(e) {
     addCart(e);
@@ -164,7 +155,6 @@ function renderCart() {
     celdaCantProducto.innerHTML = cantProdct() + "Unid."
     const totalPrecio = document.querySelector('#totalPrecio')
     totalPrecio.innerHTML = "$ " + precioTotal()
-
 }
 
 // register
@@ -183,10 +173,7 @@ function register(e) {
         idfav: []
     }
     let existe = getLS('users').some(user => user.email == newUser.email)
-    if (existe) {
-        alert(newUser.email + ' Se encuentra registrado')
-        return;
-    }
+    if (existe) return alert(newUser.email + ' Se encuentra registrado')
     getPushSetLS('users', newUser);
     bootstrap.Modal.getInstance(document.getElementById('modalRegistro')).hide();
     document.querySelector('#formRegister').reset();
@@ -202,9 +189,7 @@ function login(e) {
     inputEmail = document.querySelector('#EmailInicio').value;
     InputPassword = document.querySelector('#inputPasswordInicio').value;
     let existe = usersLogin.find(user => user.email == inputEmail && user.password == InputPassword);
-    if (!existe) {
-        alert('email o password no coinciden')
-    }
+    if (!existe) return alert('email o password no coinciden');
     if (existe && existe.isadmin) {
         setSS('user', existe)
         bootstrap.Modal.getInstance(document.getElementById('modalInicioSession')).hide();
