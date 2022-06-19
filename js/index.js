@@ -1,14 +1,13 @@
 const cardContent = document.querySelector('#cardContent');
 window.addEventListener('DOMContentLoaded', loadCard('All'));
 
-
-
 function loadCard(category) {
     let products = []
     category == 'All' ? products = getLS('products') : products = getLS('products').filter(prod => prod.category == category);
+    menuCategories.classList.remove("hidden-menu");
     cardContent.innerHTML = '';
     products.forEach(prod => {
-        const { id, img, product, category, price, description } = prod
+        const { id, img, product, category, price, description } = prod;
         cardContent.innerHTML +=
             `
         <div class="card--product">
@@ -28,19 +27,17 @@ function loadCard(category) {
 }
 
 // const menuCategories = document.querySelector('#menuCategories');
-function loadCategories() {
+(function loadCategories() {
     menuCategories.innerHTML = '';
     categories.forEach(cat => menuCategories.innerHTML += `<li><a class="btnCategory" href="#">${cat}</a></li>`);
     menuCategories.innerHTML += `<li><a class="btnCategory" href="#">All</a></li>`
-}
-loadCategories();
+})()
 
 menuCategories.addEventListener('click', filtroCategory)
 
 function filtroCategory(e) {
     if (e.target.classList.contains('btnCategory')) loadCard(e.target.innerText)
 }
-
 
 let cart = [];
 let total;
