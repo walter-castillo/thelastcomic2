@@ -148,15 +148,12 @@ function renderCart() {
                     `
     });
 
-    const celdaCantProducto = document.querySelector('#celdaCantProducto')
-    celdaCantProducto.innerHTML = cantProdct() + "Unid."
-    const totalPrecio = document.querySelector('#totalPrecio')
-    totalPrecio.innerHTML = "$ " + precioTotal()
+    document.querySelector('#celdaCantProducto').innerHTML = cantProdct() + "Unid."
+    document.querySelector('#totalPrecio').innerHTML = "$ " + precioTotal()
 }
 
 // register
-const formRegister = document.querySelector('#formRegister');
-formRegister.addEventListener('submit', register)
+document.querySelector('#formRegister').addEventListener('submit', register)
 
 function register(e) {
     e.preventDefault()
@@ -187,18 +184,10 @@ function login(e) {
     InputPassword = document.querySelector('#inputPasswordInicio').value;
     let existe = usersLogin.find(user => user.email == inputEmail && user.password == InputPassword);
     if (!existe) return alert('email o password no coinciden');
-    if (existe && existe.isadmin) {
-        setSS('user', existe)
-        bootstrap.Modal.getInstance(document.getElementById('modalInicioSession')).hide();
-        window.location = "admin.html";
-        profileHidden();
-    }
-    if (existe && existe.isadmin == false) {
-        setSS('user', existe)
-        bootstrap.Modal.getInstance(document.getElementById('modalInicioSession')).hide();
-        profileHidden();
-    }
-
+    setSS('user', existe)
+    if (existe && existe.isadmin) window.location = "admin.html"
+    bootstrap.Modal.getInstance(document.getElementById('modalInicioSession')).hide();
+    profileHidden();
 }
 
 function vaciarCarrito() {
