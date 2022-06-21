@@ -126,31 +126,38 @@ function deleteFav(e) {
 document.querySelector('.navbar-content-shop').addEventListener('click', renderCart)
 
 function renderCart() {
+    const msgCarritoVacio = document.querySelector('.msgCarritoVacio')
+    const tablaCarrito = document.querySelector('.tablaCarrito')
+    const tablaCarritobtn = document.querySelector('.tablaCarritobtn')
     let tbodyTableCarrito = document.querySelector('#tbodyTableCarrito');
     tbodyTableCarrito.innerHTML = '';
+    if (cart.length == 0) {
+        msgCarritoVacio.classList.remove('d-none');
+        tablaCarrito.classList.add('d-none');
+        tablaCarritobtn.classList.add('d-none');
+        return;
+    }
+
+    msgCarritoVacio.classList.add('d-none');
+    tablaCarrito.classList.remove('d-none');
+    tablaCarritobtn.classList.remove('d-none');
     cart.forEach(elem => {
         const { id, img, product, price, cant } = elem;
         tbodyTableCarrito.innerHTML +=
             `   <tr>
-                    <th scope="row"> ${id}
-                    </th>
-                    <td><img src="${img}" width="20" height="20" alt="${product}">
-                    </td>
-                    <td> ${ product }
-                    </td>
-                    <td> $ ${ price }
-                    </td>
-                    <td> ${ cant }
-                    </td>
-                    <td> $ ${ cant * price }
-                    </td>
-                </tr>
-                    `
+                <th scope="row"> ${id}</th>
+                <td><img src="${img}" width="20" height="20" alt="${product}"></td>
+                <td> ${product}</td>
+                <td> $ ${price}</td>
+                <td> ${cant}</td>
+                <td> $ ${cant * price}</td>
+            </tr>
+      `
     });
-
-    document.querySelector('#celdaCantProducto').innerHTML = cantProdct() + "Unid."
-    document.querySelector('#totalPrecio').innerHTML = "$ " + precioTotal()
 }
+document.querySelector('#celdaCantProducto').innerHTML = cantProdct() + "Unid."
+document.querySelector('#totalPrecio').innerHTML = "$ " + precioTotal()
+
 
 // register
 document.querySelector('#formRegister').addEventListener('submit', register)

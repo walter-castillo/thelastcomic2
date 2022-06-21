@@ -204,7 +204,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="table-responsive">
-                    <table class="table  tablaCarrito">
+                    <div class="msgCarritoVacio p-3 text-center d-none">
+                        <h1>No hay productos</h1>
+                    </div>
+                    <table class="table  tablaCarrito d-none">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -228,7 +231,7 @@
                     </table>
                 </div>
 
-                <div class=" py-2 m-auto">
+                <div class="py-2  m-auto tablaCarritobtn d-none">
                     <button type="button" class="btn btn-danger" onclick="vaciarCarrito()" data-bs-dismiss="modal">Vaciar</button>
                     <button type="button" class="btn btn-primary" onclick="graciasCompra()">Comprar</button>
                 </div>
