@@ -33,11 +33,15 @@ function loadCard(category) {
     menuCategories.innerHTML += `<li><a class="btnCategory" href="#">All</a></li>`
 })()
 
-menuCategories.addEventListener('click', filtroCategory)
+const filtroCategory = (e) => (e.target.classList.contains('btnCategory')) && loadCard(e.target.innerText);
 
-function filtroCategory(e) {
-    if (e.target.classList.contains('btnCategory')) loadCard(e.target.innerText)
-}
+menuCategories.addEventListener('click', filtroCategory);
+
+
+
+// function filtroCategory(e) {
+
+// }
 
 let cart = [];
 let total;
@@ -154,9 +158,9 @@ function renderCart() {
             </tr>
       `
     });
+    document.querySelector('#celdaCantProducto').innerHTML = cantProdct() + " Unid."
+    document.querySelector('#totalPrecio').innerHTML = "$ " + precioTotal()
 }
-document.querySelector('#celdaCantProducto').innerHTML = cantProdct() + "Unid."
-document.querySelector('#totalPrecio').innerHTML = "$ " + precioTotal()
 
 
 // register
