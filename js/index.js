@@ -20,10 +20,8 @@ function loadCard(category) {
             <button class="btn btn-success btn-agregar" data-idcomprar=${id}>Agregar</button>
             <i class="fa-solid fa-star" data-idfav=${id}></i>
         </div>
-        
         `
     });
-
 }
 
 // const menuCategories = document.querySelector('#menuCategories');
@@ -36,12 +34,6 @@ function loadCard(category) {
 const filtroCategory = (e) => (e.target.classList.contains('btnCategory')) && loadCard(e.target.innerText);
 
 menuCategories.addEventListener('click', filtroCategory);
-
-
-
-// function filtroCategory(e) {
-
-// }
 
 let cart = [];
 let total;
@@ -67,7 +59,7 @@ function addCart(e) {
         if (prodRep) {
             prodRep.cant++;
         } else {
-            productAdd.cant = 1;
+            productAdd.cant++;
             cart.push(productAdd);
         }
         numCarrito.innerHTML = cantProdct();
@@ -107,7 +99,7 @@ function renderFav() {
                     <p>${price}</p>
                     <i class="fa-solid fa-trash-can btn-delete-fav" data-idfavdelete=${id}></i>
                 </div>
-                `
+               `
         }
     })
 }
@@ -127,13 +119,17 @@ function deleteFav(e) {
     }
 }
 
+
+
+
 document.querySelector('.navbar-content-shop').addEventListener('click', renderCart)
+let tbodyTableCarrito = document.querySelector('#tbodyTableCarrito');
 
 function renderCart() {
     const msgCarritoVacio = document.querySelector('.msgCarritoVacio')
     const tablaCarrito = document.querySelector('.tablaCarrito')
     const tablaCarritobtn = document.querySelector('.tablaCarritobtn')
-    let tbodyTableCarrito = document.querySelector('#tbodyTableCarrito');
+
     tbodyTableCarrito.innerHTML = '';
     if (cart.length == 0) {
         msgCarritoVacio.classList.remove('d-none');
@@ -155,11 +151,22 @@ function renderCart() {
                 <td> $ ${price}</td>
                 <td> ${cant}</td>
                 <td> $ ${cant * price}</td>
+                <td><i class="fa-solid fa-x" data-iddeletecarrito=${id}></i></td>
             </tr>
       `
     });
     document.querySelector('#celdaCantProducto').innerHTML = cantProdct() + " Unid."
     document.querySelector('#totalPrecio').innerHTML = "$ " + precioTotal()
+}
+
+tbodyTableCarrito.addEventListener('click', deleteCarrito)
+
+function deleteCarrito(e) {
+    let idfavdelete = e.target.dataset['iddeletecarrito']
+    if (idfavdelete) {
+        console.log('desde x')
+            // quede acacaa
+    }
 }
 
 

@@ -9,6 +9,7 @@ function createNewProduct(e) {
         description: document.querySelector('#createDescripcion').value,
         price: document.querySelector('#createPrecio').value,
         category: document.querySelector('#createCategorias').value,
+        cant: 0,
         img: 'https://picsum.photos/200'
             // img: document.querySelector('#createUrl').value
     }
@@ -121,8 +122,6 @@ tableProducts.addEventListener('click', (e) => {
                 <div class="mb-3">
                     <label for="categoria" class="col-form-label">Categoría:</label>
                     <select class="form-select" aria-label="Seleccione una categoria" id="editCategorias" required>
-        
-                   
                     </select>
                 </div>
                 <div class="mb-3">
