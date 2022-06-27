@@ -113,11 +113,11 @@ tableProducts.addEventListener('click', (e) => {
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="producto" class="col-form-label">Producto:</label>
-                    <input type="text"    data-id=${id} class="form-control" id="editProducto" value="${product}" required>
+                    <input type="text"    data-id=${id} class="form-control" id="editProducto" value="${product}" required maxlength="30">
                 </div>
                 <div class="mb-3">
                     <label for="url" class="col-form-label">url imagen:</label>
-                    <input type="text" class="form-control" id=editUrl" value="${img}" required>
+                    <input type="text" class="form-control" id=editUrl" value="${img}" required maxlength="50" >
                 </div>
                 <div class="mb-3">
                     <label for="categoria" class="col-form-label">Categoría:</label>
@@ -130,7 +130,7 @@ tableProducts.addEventListener('click', (e) => {
                 </div>
                 <div class="mb-3 ">
                     <label for="descripcion" class="col-form-label ">descripcion:</label>
-                    <textarea class="form-control " id="editDescripcion" required>${description}</textarea>
+                    <textarea class="form-control " id="editDescripcion" required maxlength="200">${description}</textarea>
                 </div>
             </div>
             <div class="modal-footer ">

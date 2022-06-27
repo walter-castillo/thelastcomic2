@@ -55,11 +55,11 @@
                     <form id="formCreateProduct" action="#">
                         <div class="mb-3">
                             <label for="producto" class="col-form-label">Producto:</label>
-                            <input type="text" class="form-control" maxlength="30" id="createProducto" required>
+                            <input type="text" class="form-control" id="createProducto" required maxlength="30">
                         </div>
                         <div class="mb-3">
                             <label for="precio" class="col-form-label">Precio:</label>
-                            <input type="number" class="form-control" min="1" id="createPrecio" required>
+                            <input type="number" class="form-control" min="1" max="999999" id="createPrecio" required>
                         </div>
                         <div class="mb-3">
                             <label for="url" class="col-form-label">url imagen:</label>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="mb-3 ">
                             <label for="descripcion" class="col-form-label ">descripcion:</label>
-                            <textarea class="form-control" maxlength="100" id="createDescripcion" required></textarea>
+                            <textarea class="form-control" maxlength="100" id="createDescripcion" required maxlength="200"></textarea>
                         </div>
                 </div>
                 <div class="modal-footer ">
