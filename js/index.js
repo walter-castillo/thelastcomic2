@@ -164,9 +164,17 @@ tbodyTableCarrito.addEventListener('click', deleteCarrito)
 function deleteCarrito(e) {
     let idfavdelete = e.target.dataset['iddeletecarrito']
     if (idfavdelete) {
-        console.log('desde x')
-            // quede acacaa
+        console.log(cart)
+        console.log(idfavdelete)
+        let indexProduct = cart.findIndex(prod => prod.id == idfavdelete);
+        console.log(indexProduct)
+        cart.splice(indexProduct, 1)
+        console.log(cart)
+
+        // let userActualFav = usersLS[indexProduct].idfav; // recuperamos el user actual para modificarlo
+        // userActualFav.splice(userActualFav.indexOf(parseInt(idfavdelete)), 1) // buscamos le indice del idprod y eliminamos
     }
+    renderCart()
 }
 
 
