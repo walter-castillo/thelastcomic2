@@ -164,8 +164,6 @@ tbodyTableCarrito.addEventListener('click', deleteCarrito)
 function deleteCarrito(e) {
     let idfavdelete = e.target.dataset['iddeletecarrito']
     if (idfavdelete) {
-        console.log(cart)
-        console.log(idfavdelete)
         let indexProduct = cart.findIndex(prod => prod.id == idfavdelete);
         cart.splice(indexProduct, 1)
     }
@@ -215,9 +213,7 @@ document.querySelector('#btnVaciarCarrito').addEventListener('click', vaciarCarr
 
 function vaciarCarritoConfirm() {
     const confirmDelete = confirm('Desea vaciar el carrito?');
-    if (confirmDelete) {
-
-    }
+    if (confirmDelete) vaciarCarrito();
 }
 
 function vaciarCarrito() {
