@@ -10,8 +10,7 @@ function createNewProduct(e) {
         price: document.querySelector('#createPrecio').value,
         category: document.querySelector('#createCategorias').value,
         cant: 0,
-        img: 'https://picsum.photos/200'
-            // img: document.querySelector('#createUrl').value
+        img: document.querySelector('#createUrl').value
     }
     getPushSetLS('products', newProduct)
     document.querySelector('#formCreateProduct').reset();
@@ -156,8 +155,8 @@ function editProduct(e) {
             editProduct.description = document.querySelector('#editDescripcion').value;
             editProduct.price = document.querySelector('#editPrecio').value;
             editProduct.category = document.querySelector('#editCategorias').value;
-            editProduct.img = 'https://picsum.photos/200';
-            // img: document.querySelector('#editUrl').value
+            // editProduct.img = 'https://picsum.photos/200';
+            editProduct.img = document.querySelector('#editUrl').value
         }
     });
     setLS('products', productos)

@@ -31,7 +31,7 @@ function loadCard(category) {
     menuCategories.innerHTML += `<li><a class="btnCategory" href="#">All</a></li>`
 })()
 
-const filtroCategory = (e) => (e.target.classList.contains('btnCategory')) && loadCard(e.target.innerText);
+const filtroCategory = (e) => (e.target.classList.contains('btnCategory')) && loadCard(e.target.innerText); // && es un if
 
 menuCategories.addEventListener('click', filtroCategory);
 
@@ -167,12 +167,7 @@ function deleteCarrito(e) {
         console.log(cart)
         console.log(idfavdelete)
         let indexProduct = cart.findIndex(prod => prod.id == idfavdelete);
-        console.log(indexProduct)
         cart.splice(indexProduct, 1)
-        console.log(cart)
-
-        // let userActualFav = usersLS[indexProduct].idfav; // recuperamos el user actual para modificarlo
-        // userActualFav.splice(userActualFav.indexOf(parseInt(idfavdelete)), 1) // buscamos le indice del idprod y eliminamos
     }
     renderCart()
 }
@@ -187,8 +182,8 @@ function register(e) {
         id: newId(),
         name: document.querySelector('#nameRegistro').value,
         email: document.querySelector('#emailRegistro').value,
-        password: '123',
-        // password: document.querySelector('#inputPasswordRegistro').value,
+        // password: '123',
+        password: document.querySelector('#inputPasswordRegistro').value,
         isadmin: false,
         idfav: []
     }
@@ -217,6 +212,17 @@ function login(e) {
 }
 
 function vaciarCarrito() {
+    /*  tableProducts.addEventListener('click', (e) => {
+         if (e.target.matches(".btn-danger")) {
+             const confirmDelete = confirm('Desea eliminar el producto?');
+             if (confirmDelete) {
+                 getDeleteSetLS('products', e.target.dataset.id)
+                 e.target.parentElement.parentElement.parentElement.remove();
+             }
+         }
+     }); */
+
+
     cart = [];
     numCarrito.innerHTML = cantProdct();
 }
