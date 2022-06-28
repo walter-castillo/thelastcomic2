@@ -211,18 +211,16 @@ function login(e) {
     profileHidden();
 }
 
+document.querySelector('#btnVaciarCarrito').addEventListener('click', vaciarCarritoConfirm)
+
+function vaciarCarritoConfirm() {
+    const confirmDelete = confirm('Desea vaciar el carrito?');
+    if (confirmDelete) {
+
+    }
+}
+
 function vaciarCarrito() {
-    /*  tableProducts.addEventListener('click', (e) => {
-         if (e.target.matches(".btn-danger")) {
-             const confirmDelete = confirm('Desea eliminar el producto?');
-             if (confirmDelete) {
-                 getDeleteSetLS('products', e.target.dataset.id)
-                 e.target.parentElement.parentElement.parentElement.remove();
-             }
-         }
-     }); */
-
-
     cart = [];
     numCarrito.innerHTML = cantProdct();
 }
