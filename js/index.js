@@ -204,6 +204,7 @@ function login(e) {
     let existe = usersLogin.find(user => user.email == inputEmail && user.password == InputPassword);
     if (!existe) return alert('email o password no coinciden');
     setSS('user', existe)
+    alert("Bienvenidos al sitio");
     if (existe && existe.isadmin) window.location = "admin.html"
     bootstrap.Modal.getInstance(document.getElementById('modalInicioSession')).hide();
     profileHidden();
@@ -225,6 +226,7 @@ function cerrarSesion() {
     vaciarCarrito();
     sessionStorage.clear();
     profileHidden();
+    alert("Gracias por la visita");
 }
 
 function graciasCompra() {
