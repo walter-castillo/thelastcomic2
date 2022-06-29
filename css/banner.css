@@ -8,7 +8,7 @@
     width: 100%;
     height: 40vh;
     margin: 10px auto;
-    /* background-size: cover; */
+    background-size: cover;
 }
 
 @media (max-width: 768px) {

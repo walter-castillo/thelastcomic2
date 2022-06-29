@@ -106,11 +106,11 @@ function profileHidden() {
     const nameLogged = document.querySelector('#nameLogged');
     let userLogueado = getSS('user')
     if (userLogueado == null) {
-        console.log('no hay logueado');
+        // console.log('no hay logueado');
         conInicio.classList.add('hide')
         sinInicio.classList.remove('hide')
     } else {
-        console.log('logueado ok');
+        // console.log('logueado ok');
         if (sinInicio) {
             conInicio.classList.remove('hide')
             sinInicio.classList.add('hide')
