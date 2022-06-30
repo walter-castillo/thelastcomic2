@@ -118,9 +118,7 @@ function profileHidden() {
             document.querySelector('#formLogin').reset();
         }
     }
-
 }
-
 
 const getPushSetLS = (clave, newItem) => {
     let newArray = JSON.parse(localStorage.getItem(clave));

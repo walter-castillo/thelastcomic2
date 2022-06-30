@@ -34,7 +34,6 @@ function loadCard(category) {
 const filtroCategory = (e) => (e.target.classList.contains('btnCategory')) && loadCard(e.target.innerText); // && es un if
 
 menuCategories.addEventListener('click', filtroCategory);
-
 let cart = [];
 let total;
 let totalItem;
@@ -119,9 +118,6 @@ function deleteFav(e) {
     }
 }
 
-
-
-
 document.querySelector('.navbar-content-shop').addEventListener('click', renderCart)
 let tbodyTableCarrito = document.querySelector('#tbodyTableCarrito');
 
@@ -131,7 +127,7 @@ function renderCart() {
     const tablaCarritobtn = document.querySelector('.tablaCarritobtn')
 
     tbodyTableCarrito.innerHTML = '';
-    if (cart.length == 0) {
+    if (cart.length === 0) {
         msgCarritoVacio.classList.remove('d-none');
         tablaCarrito.classList.add('d-none');
         tablaCarritobtn.classList.add('d-none');
@@ -170,7 +166,6 @@ function deleteCarrito(e) {
     renderCart()
 }
 
-
 // register
 document.querySelector('#formRegister').addEventListener('submit', register)
 
@@ -199,8 +194,8 @@ function login(e) {
     e.preventDefault();
     cart = [];
     let usersLogin = getLS('users');
-    inputEmail = document.querySelector('#EmailInicio').value;
-    InputPassword = document.querySelector('#inputPasswordInicio').value;
+    const inputEmail = document.querySelector('#EmailInicio').value;
+    const InputPassword = document.querySelector('#inputPasswordInicio').value;
     let existe = usersLogin.find(user => user.email == inputEmail && user.password == InputPassword);
     if (!existe) return alert('email o password no coinciden');
     setSS('user', existe)

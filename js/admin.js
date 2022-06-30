@@ -19,8 +19,6 @@ function createNewProduct(e) {
     loadTableAdmin();
 }
 
-
-
 const selectLoad = document.querySelector('#createCategorias');
 categories.forEach(item => selectLoad.innerHTML += `<option value="${item}">${item}</option>`);
 
@@ -54,7 +52,6 @@ function loadTableAdmin() {
 }
 
 // eliminar  con confirmacion
-
 tableProducts.addEventListener('click', (e) => {
     if (e.target.matches(".btn-danger")) {
         const confirmDelete = confirm('Desea eliminar el producto?');
@@ -65,10 +62,8 @@ tableProducts.addEventListener('click', (e) => {
     }
 });
 
-
 // show  modal product
 let modalShowAdmin = document.querySelector('#modalShowAdmin');
-
 tableProducts.addEventListener('click', (e) => {
     if (e.target.matches(".btn-ver")) {
         modalShowAdmin.innerHTML = '';
@@ -141,9 +136,7 @@ tableProducts.addEventListener('click', (e) => {
     }
 })
 
-
 // edit guardar editado
-
 formEditProduct.addEventListener('submit', editProduct)
 
 function editProduct(e) {
