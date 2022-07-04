@@ -173,7 +173,7 @@ function register(e) {
     e.preventDefault()
     let password1 = document.querySelector('#inputPasswordRegistro').value
     let password2 = document.querySelector('#inputPasswordRegistro2').value
-    if (password1 !== password2) return alert('contraseña incorrecta');
+    if (password1 !== password2) return alert('Los password no coinciden');
 
     let newUser = {
         id: newId(),
