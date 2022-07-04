@@ -171,15 +171,19 @@ document.querySelector('#formRegister').addEventListener('submit', register)
 
 function register(e) {
     e.preventDefault()
+    let password1 = document.querySelector('#inputPasswordRegistro').value
+    let password2 = document.querySelector('#inputPasswordRegistro2').value
+    if (password1 !== password2) return alert('contraseña incorrecta');
+
     let newUser = {
         id: newId(),
         name: document.querySelector('#nameRegistro').value,
         email: document.querySelector('#emailRegistro').value,
-        // password: '123',
-        password: document.querySelector('#inputPasswordRegistro').value,
+        password: password1,
         isadmin: false,
         idfav: []
     }
+
     let existe = getLS('users').some(user => user.email == newUser.email)
     if (existe) return alert(newUser.email + ' Se encuentra registrado')
     getPushSetLS('users', newUser);
